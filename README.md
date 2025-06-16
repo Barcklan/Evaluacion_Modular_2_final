@@ -58,9 +58,7 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
 
 ---
 
-## Capturas del Sistema
-
-> 📸 **[Aquí se deben incluir capturas de la ejecución del sistema en consola o interfaz, si aplica.]**
+## 📸 Capturas del Sistema
 
       # Sistema Integrado de Gestión y Recomendación en una Red Social
 
