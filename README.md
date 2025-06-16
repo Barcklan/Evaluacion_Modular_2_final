@@ -225,6 +225,7 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
       
 
 ###Grafo de Usuarios y Amistades - Red Social
+
 ![image](descarga6.png)
 
 ###Comparación de Rendimiento
