@@ -62,6 +62,163 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
 
 > 📸 **[Aquí se deben incluir capturas de la ejecución del sistema en consola o interfaz, si aplica.]**
 
+# Sistema Integrado de Gestión y Recomendación en una Red Social
+
+      import time
+      import random
+      import networkx as nx
+      from collections import deque, defaultdict
+      import matplotlib.pyplot as plt
+      import numpy as np
+      from numba import njit
+      # ==============================
+      # EXCEPCIONES PERSONALIZADAS
+      # ==============================
+      class UsuarioExisteError(Exception):
+          pass
+
+      class UsuarioNoExisteError(Exception):
+          pass
+
+      class ConexionInvalidaError(Exception):
+          pass
+      # ==============================
+      # CLASES Y POO CON SOLID
+      # ==============================
+      class NodoUsuario:
+          def __init__(self, nombre):
+              self.nombre = nombre
+              self.amigos = set()
+
+          def agregar_amigo(self, amigo):
+              if amigo == self.nombre:
+                  raise ConexionInvalidaError("Un usuario no puede agregarse a sí mismo como amigo.")
+        self.amigos.add(amigo)
+
+      class RedSocial:
+          def __init__(self):
+              self.usuarios = {}
+
+      def agregar_usuario(self, nombre):
+        if nombre in self.usuarios:
+            raise UsuarioExisteError(f"El usuario '{nombre}' ya existe.")
+        self.usuarios[nombre] = NodoUsuario(nombre)
+
+    def agregar_amigo(self, nombre1, nombre2):
+        if nombre1 not in self.usuarios or nombre2 not in self.usuarios:
+            raise UsuarioNoExisteError("Uno o ambos usuarios no existen.")
+        self.usuarios[nombre1].agregar_amigo(nombre2)
+        self.usuarios[nombre2].agregar_amigo(nombre1)
+
+    def sugerencias_amigos(self, nombre):
+        if nombre not in self.usuarios:
+            raise UsuarioNoExisteError(f"El usuario '{nombre}' no existe.")
+        conocidos = self.usuarios[nombre].amigos
+        sugerencias = set()
+        for amigo in conocidos:
+            sugerencias.update(self.usuarios[amigo].amigos - conocidos - {nombre})
+        return list(sugerencias)
+
+    def bfs(self, inicio):
+        visitados = set()
+        cola = deque([inicio])
+        recorrido = []
+        while cola:
+            actual = cola.popleft()
+            if actual not in visitados:
+                visitados.add(actual)
+                recorrido.append(actual)
+                cola.extend(self.usuarios[actual].amigos - visitados)
+        return recorrido
+      # ==============================
+      # OPTIMIZACIÓN
+      # ==============================
+      @njit
+      def calcular_conexiones_opt(num_usuarios):
+          matriz = np.zeros((num_usuarios, num_usuarios))
+          for i in range(num_usuarios):
+              for j in range(i + 1, num_usuarios):
+                  matriz[i][j] = 1
+                  matriz[j][i] = 1
+          return matriz
+
+      def calcular_conexiones(num_usuarios):
+          matriz = np.zeros((num_usuarios, num_usuarios))
+          for i in range(num_usuarios):
+              for j in range(i + 1, num_usuarios):
+                  matriz[i][j] = 1
+                  matriz[j][i] = 1
+          return matriz
+      # ==============================
+      # PRUEBA DE FUNCIONALIDAD
+      # ==============================
+      red = RedSocial()
+      usuarios_demo = ["Ana", "Luis", "Carlos", "Elena", "Sofia", "Pedro", "Carlos"]
+      for u in usuarios_demo:
+          try:
+              red.agregar_usuario(u)
+          except UsuarioExisteError as e:
+              print(e)
+
+      # Crear algunas conexiones
+      red.agregar_amigo("Ana", "Luis")
+      red.agregar_amigo("Luis", "Carlos")
+      red.agregar_amigo("Carlos", "Elena")
+      red.agregar_amigo("Sofia", "Luis")
+
+      print("Sugerencias para Ana:", red.sugerencias_amigos("Ana"))
+      print("Recorrido BFS desde Luis:", red.bfs("Luis"))
+      # ==============================
+      # VISUALIZACIÓN DEL GRAFO
+      # ==============================
+
+      # Crear un grafo simple de una red social
+      G = nx.Graph()
+
+      # Agregar nodos (usuarios)
+      usuarios = ["Ana", "Luis", "Carlos", "Elena", "Sofia", "Pedro"]
+      G.add_nodes_from(usuarios)
+
+      # Agregar conexiones (amistades)
+      amistades = [
+          ("Ana", "Luis"),
+          ("Luis", "Carlos"),
+          ("Carlos", "Elena"),
+          ("Sofia", "Luis")
+      ]
+      G.add_edges_from(amistades)
+
+      # Dibujar el grafo
+      plt.figure(figsize=(6, 5))
+      pos = nx.spring_layout(G, seed=42)
+      nx.draw(G, pos, with_labels=True, node_color="skyblue", node_size=2000, font_size=12, font_weight="bold", edge_color="gray")
+      plt.title("Red Social - Grafo de Usuarios y Amistades")
+      plt.tight_layout()
+      plt.show()
+      # ==============================
+      # MEDICIÓN DE RENDIMIENTO
+      # ==============================
+      N = 10_000
+      start = time.time()
+      calcular_conexiones(N)
+      no_opt_time = time.time() - start
+
+      start = time.time()
+      calcular_conexiones_opt(N)
+      opt_time = time.time() - start
+      # ==============================
+      # GRÁFICA DE RENDIMIENTO
+      # ==============================
+      x = ["Sin optimizar", "Optimizado"]
+      y = [no_opt_time, opt_time]
+      plt.bar(x, y, color=["red", "green"])
+      plt.ylabel("Tiempo (s)")
+      plt.title("Comparación de rendimiento")
+      plt.show()
+![image](https://github.com/user-attachments/assets/fb37df80-7b54-4560-be24-3168647c5736)
+
+
+
 ---
 
 ## Conclusión
