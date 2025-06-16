@@ -216,7 +216,7 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
       plt.title("Comparación de rendimiento")
       plt.show()
 
-##Salidas
+## Salidas
 
       El usuario 'Carlos' ya existe.
       Sugerencias para Ana: ['Carlos', 'Sofia']
@@ -224,11 +224,11 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
 
       
 
-###Grafo de Usuarios y Amistades - Red Social
+### Grafo de Usuarios y Amistades - Red Social
 
 ![image](descarga6.png)
 
-###Comparación de Rendimiento
+### Comparación de Rendimiento
 
 ![image](descarga7.png)
 
