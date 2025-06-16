@@ -225,7 +225,7 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
       
 
 
-![image]()
+![image](descarga6.png)
 
 
 
