@@ -72,7 +72,7 @@ Este proyecto demuestra cómo se puede simular una red social simple mediante es
 
 ## Autor
 
-Desarrollado por [Tu Nombre]  
-Curso: [Nombre del Curso]  
-Fecha: [Fecha de entrega]
+Desarrollado por [Claudio Andrés Díaz Vargas]  
+Curso: [Evaluación Modular]  
+Fecha: [Junio 2025]
 
