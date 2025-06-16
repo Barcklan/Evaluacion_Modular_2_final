@@ -62,7 +62,7 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
 
 > 📸 **[Aquí se deben incluir capturas de la ejecución del sistema en consola o interfaz, si aplica.]**
 
-# Sistema Integrado de Gestión y Recomendación en una Red Social
+      # Sistema Integrado de Gestión y Recomendación en una Red Social
 
       import time
       import random
@@ -215,7 +215,17 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
       plt.ylabel("Tiempo (s)")
       plt.title("Comparación de rendimiento")
       plt.show()
-![image](https://github.com/user-attachments/assets/fb37df80-7b54-4560-be24-3168647c5736)
+
+##Salidas
+
+      El usuario 'Carlos' ya existe.
+      Sugerencias para Ana: ['Carlos', 'Sofia']
+      Recorrido BFS desde Luis: ['Luis', 'Carlos', 'Ana', 'Sofia', 'Elena']
+
+      
+
+
+![image]()
 
 
 
