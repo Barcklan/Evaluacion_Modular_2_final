@@ -237,7 +237,9 @@ Este proyecto implementa un sistema básico de red social que permite la gestió
 Este proyecto demuestra cómo se puede simular una red social simple mediante estructuras de grafos y programación orientada a objetos. Se lograron implementar funcionalidades clave como el registro de usuarios, conexión entre ellos, recomendaciones inteligentes de amistad y recorrido por la red. Además, se aplicaron principios sólidos de diseño de software que hacen al sistema mantenible y extensible para futuras mejoras.
 
 ---
-
+## 📁 Archivos Adjuntos
+- README (este documento)
+- Evaluación Modular M2-Claudio-Diaz.ipynb (notebook de Google Colab con los codigos del proyecto de Red Social)
 ## Autor
 
 Desarrollado por [Claudio Andrés Díaz Vargas]  
